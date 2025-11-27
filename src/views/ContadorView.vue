@@ -1,9 +1,10 @@
 <template>
-  <div> 
-    <Contador/>   
-        <Contador/>   
-
-</div>
+   <div>
+    <Contador/>
+    <Contador/>
+    <Contador tit="Contador 1" v-bind:inicio="4+4" v-bind:mostrar="true"/>
+    <Contador tit="Contador 2" :inicio="4" :mostrar="false"/>
+  </div>
 </template>
 
 <script>
