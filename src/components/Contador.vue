@@ -62,7 +62,7 @@ export default {
     mostrar: Boolean
   },
   
-  /*String, Number, Boolean, Object, Array, Function, date, BigIntInt*/
+  
 
 }
 
