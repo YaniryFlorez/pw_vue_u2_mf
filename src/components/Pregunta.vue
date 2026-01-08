@@ -12,7 +12,7 @@
     <p>Recuerda terminar con el signo de interrogación (?)</p>
     <h2>Seré millonario?</h2>
     <h1>{{ respuesta }}</h1>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
       pregunta: null,
       respuesta: null,
       imagen: null,
-    };
+    }
   },
   watch: {
     pregunta(value, oldValue) {
