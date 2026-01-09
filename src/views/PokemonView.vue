@@ -1,12 +1,12 @@
 <template>
-      <h1> Has ganado</h1>
   <div class="container">
     <PokemonOpciones
       v-on:seleccionado="evaluarGanador($event)"
       :listaPokemons="pokemonArr"
     />
-    <PokemonImagen :pokemonId="this.pokemonGanador" />
+    <PokemonImagen v-if="mostrar" :pokemonId="this.pokemonGanador" />
 
+    <button @click="destruir()">Destruir</button>
   </div>
 </template>
 
@@ -27,15 +27,43 @@ export default {
       pokemonArr: [],
       pokemonGanador: 0,
       idGanador: null,
-      mensaje: "",
+      mostrar: true,
     };
   },
-  async mounted() {
+/*  crea el componente  */
+  beforeCreate() {
+    console.log("BeforeCreate, apenas se inicia la instacia del componente");
+  },
+
+created() {
+    console.log("Created, ya se creo la instancia del componente");
+  },
+/*  monta el componente, renderiza el componente  */
+beforeMount() {
+    console.log("BeforeMount, antes de renderizar un elemento html");
+  },
+
+  mounted() {
+      console.log("Mounted, ya se rederizo el componente en el html");
     console.log("Mounted de PokemonView");
     this.iniciarJuego();
   },
+/* Actualizacion de un componente  */
+beforeUpdate() {
+    console.log("BeforeUpdate, cuando cambio un data, un prop, antes de renderizarse");
+  },
+
+  updated() {
+    console.log("Updated, se actualizo despues de la re- renderizacion");
+  },
+
+
 
   methods: {
+    destruir() {
+      this.mostrar = false;
+    },
+
     async iniciarJuego() {
       this.pokemonArr = await obtenerVectorPokemonFachada();
 
